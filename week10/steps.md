@@ -1,4 +1,4 @@
-*TASK-9: Static website with S3 and CloudFront #63*
+**TASK-9: Static website with S3 and CloudFront #63**
 
 U tasku 9 je zadatak napraviti .html file koji ce prikazivati Vaše ime i prezime, kratki Vaš opis, te DevOps image koji koristimo od početka programa. HTML file uredite kako god želite (text, colors, fonts, etc.), nije bitno, ali da je preglednost u najmanju ruku okey.
 
@@ -8,7 +8,8 @@ Dodati .html i error.html file,
 Podesiti bucket na public access, te dodati bucket policy koji će omogućiti samo minimalne access permissions nad bucketom.
 Drugi dio zadatka jeste objaviti tu statičku web stranicu kroz CloudFront distribuciju.
 
-Koraci za izradu zadatka:
+***Koraci za izradu zadatka:***
+
 1. Kreirati .html file i error.html file 
 
 2. Kreirati bucket 
@@ -31,12 +32,12 @@ Koraci za izradu zadatka:
 ![2 addedfiles](https://github.com/AlmaDr/alma-drina-devops-mentorship-/assets/72069598/9c1ca0db-4527-4161-a239-c425fff3cbfc)
 
 
-4. Properties -> Static website hosting -> Enable
+4. Properties - Static website hosting - Enable
 
 ![4 staticwebsitehosting](https://github.com/AlmaDr/alma-drina-devops-mentorship-/assets/72069598/f67ae011-85d1-46fa-ba24-9ed3325497be)
 
 
-5. Permissions -> Public access -> Dodati bucket policy 
+5. Permissions - Public access - Dodati bucket policy 
 ![3 bucketpolicy](https://github.com/AlmaDr/alma-drina-devops-mentorship-/assets/72069598/b8b2e5ea-48e6-48ad-b768-041d977b6429)
 
 http://alma-drina-devops-mentorship-program-week-11.s3-website-us-east-1.amazonaws.com
@@ -49,32 +50,34 @@ http://alma-drina-devops-mentorship-program-week-11.s3-website-us-east-1.amazona
 
 7. Kreiranje Cloud Front distrubucije
 
-Create Cloud Front distribution
+- Create Cloud Front distribution
 
-Origin domain - izaberemo s3 bucket
+- Origin domain - izaberemo s3 bucket
 
-Origin path preskocimo
+- Origin path preskocimo
 
-Name ostavimo defaultno
+- Name ostavimo defaultno
 
-Origin access - public
+- Origin access - public
 
-Default root object - index.html
+- Default root object - index.html
 
-Viewer protocol policy- (Redirect HTTP to HTTPS)
+- Viewer protocol policy- (Redirect HTTP to HTTPS)
 
-Settings - Custom SSL certificate - izaberemo kreirani Amazon certifikat
-
-![7 sslcertificate](https://github.com/AlmaDr/alma-drina-devops-mentorship-/assets/72069598/ed0bca10-d03c-4886-aff4-e6452e73f528)
+- Settings - Custom SSL certificate - izaberemo kreirani Amazon certifikat
 
 
-![6 cloudfront](https://github.com/AlmaDr/alma-drina-devops-mentorship-/assets/72069598/17feb740-d671-47a4-a437-476c57afb366)
+![7 sslcertificate1](https://github.com/AlmaDr/alma-drina-devops-mentorship-/assets/72069598/1393698e-89ef-47f6-9da3-cea5384fb2e3)
+
 
 8. Konfigurišemo Route 53 kroz CLI
-# Route 53 configuration:
-`aws route53 change-resource-record-sets --hosted-zone-id Z3LHP8UIUC8CDK --change-batch '{"Changes":[{"Action":"CREATE","ResourceRecordSet":{"Name":"www.alma-drina.awsbosnia.com","Type":"CNAME","TTL":60,"ResourceRecords":[{"Value":"dv97pz9qp7uan.cloudfront.net"}]}}]}'` 
+
+`# Route 53 configuration:
+
+aws route53 change-resource-record-sets --hosted-zone-id Z3LHP8UIUC8CDK --change-batch '{"Changes":[{"Action":"CREATE","ResourceRecordSet":{"Name":"www.alma-drina.awsbosnia.com","Type":"CNAME","TTL":60,"ResourceRecords":[{"Value":"dv97pz9qp7uan.cloudfront.net"}]}}]}'`
 
 9. R53 record - encrypted
+
 
 ![8 mywebsitedomain](https://github.com/AlmaDr/alma-drina-devops-mentorship-/assets/72069598/04527eb9-df8d-4d88-88c4-f7a33fdb3a2f)
 
