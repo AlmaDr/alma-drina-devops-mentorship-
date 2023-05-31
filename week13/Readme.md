@@ -9,7 +9,7 @@ Trunk-based development*
 
 •	Razlozi zasto se koristi ovaj model:
 
-- je sto vise timova moze raditi na razlicitim feature release-ima sa razlicitim timeline-ima. 
+- zato što vise timova moze raditi na razlicitim feature release-ima sa razlicitim timeline-ima. 
 - organizacije koje pruzaju SAAS (Software As-A Service) mozda imaju klijente koji ne zele biti na posljednjim verzijama sve vrijeme te je neophodno da kreiraju nekoliko "Release" i "Hotfix" brancheva.
 - Neki timovi mozda imaju specificne QA zahtjeve - primjer manual approval sto dovodi do kašnjenja obzirom da su neki featuri predstavljeni prije produkcije
 
@@ -86,7 +86,7 @@ $ sudo ./gitflow-installer.sh
 
 # Master Branch
 
-**Elastic Beanstalk **
+**Elastic Beanstalk
 
 •	Kako bismo pojednostavili proces podesavanja i konfigurisanja EC2 instanci,koristit ćemo nodejs environment koristeci AWS Elastic Beanstalk - koji ce dopustiti da lako hostujemo web aplikacije bez potrebe da lansiramo, konfigurisemo ili operiramo virtuelnim serverima na svoju ruku. Automatski provizionira i operira infrastrukturom (primjer virtuelnim serverima, load balancerima itd.) i provide-a aplikacijski stack (primjer operativni sistem, programski jezik i framework, web i aplikacijski server itd.) za nas.
 
